@@ -14,7 +14,9 @@ from sklearn.metrics import davies_bouldin_score
 
 ## Header
 st.title(":bar_chart: Auto KMeans Clustering Website")
-st.write("By: @Hendri Agustono & @Bhima Fairul Rifqi")
+st.write("By: ")
+st.link_button("Hendri Agustono on LinkedIn", "https://linkedin.com/in/hendri-agustono")
+st.link_button("Bhima Fairul Rifqi on LinkedIn", "https://linkedin.com/in/fairulrifqi962")
 st.divider()
 
 ## Upload
