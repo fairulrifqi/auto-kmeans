@@ -14,7 +14,6 @@ from sklearn.metrics import davies_bouldin_score
 
 ## Header
 st.title(":bar_chart: Auto KMeans Clustering Website")
-st.write("by: @Hendri Agustono @Bhima Fairul Rifqi")
 st.divider()
 
 ## Upload
@@ -39,11 +38,13 @@ if dataframe is not None:
     df_metriccol = []
 
     # dimensi
-    df_dimensicol = st.selectbox("Kolom dimensi", df_dimcol)
-    st.write('Dimensi clustering:')
-    st.dataframe(df[df_dimensicol], use_container_width=True)
-    st.write('Dataframe clustering:')
+    if len(df_dimcol) != 0:
+        df_dimensicol = st.selectbox("Kolom dimensi", df_dimcol)
+        st.write('Dimensi clustering:')
+        st.dataframe(df[df_dimensicol], use_container_width=True)
+
     # meteric
+    st.write('Dataframe clustering:')
     for col in df_mcol:
         if st.checkbox(col, value=True):
             df_metriccol.append(col)
@@ -112,8 +113,12 @@ if dataframe is not None:
         # Display plot in Streamlit
         st.pyplot(fig)
         df['cluster'] = kmeans.labels_
-        final_array = df_metriccol + [df_dimensicol, 'cluster']
-        st.dataframe(df[final_array])
+        if len(df_dimcol) != 0:
+            final_array = df_metriccol + [df_dimensicol, 'cluster']
+            st.dataframe(df[final_array])
+        else:
+            final_array = df_metriccol + ['cluster']
+            st.dataframe(df[final_array])
 
     if st.session_state["clicked"]:
         cluster()
