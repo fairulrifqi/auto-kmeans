@@ -46,7 +46,7 @@ if dataframe is not None:
     # meteric
     st.write('Dataframe clustering:')
     for col in df_mcol:
-        if st.checkbox(col, value=True):
+        if st.checkbox(str(col), value=True):
             df_metriccol.append(col)
     df_clustering = df[df_metriccol]
     st.divider()
