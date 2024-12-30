@@ -14,6 +14,7 @@ from sklearn.metrics import davies_bouldin_score
 
 ## Header
 st.title(":bar_chart: Auto KMeans Clustering Website")
+st.write("By: @Hendri Agustono & @Bhima Fairul Rifqi")
 st.divider()
 
 ## Upload
